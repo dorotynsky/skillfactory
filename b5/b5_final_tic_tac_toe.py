@@ -1,13 +1,18 @@
 print('Welcome to the game Tic-tac-toe')
-print('You know how it works. Good luck!')
+print('Please enter coordinates for X or 0 with a space between them')
+print('First coordinate for row, second - for column (eg 0 1)')
+print('Good luck!')
 grid = [['-' for j in range(3)] for i in range(3)]
 
 
 def print_current_grid():
     print('________________________')
     print('This is the current grid')
-    for row in grid:
-        print(row)
+    print('  0 1 2')
+    for i in range(len(grid)):
+        print(i, *grid[i])
+    # for row in grid:
+    #     print(row)
     print('________________________')
     print()
 
@@ -53,14 +58,7 @@ def has_someone_win():
 
 
 while True:
-    x_coordinates = list(map(int, (input
-                                   ('''
-Enter coordinates for X with a space between them (e.g. "1 1").
-Coordinates for the cells:
-0 0 | 0 1 | 0 2
-1 0 | 1 1 | 1 2
-2 0 | 2 1 | 2 2
-''').split())))
+    x_coordinates = list(map(int, (input('Enter coordinates for X: ').split())))
 
     if grid[x_coordinates[0]][x_coordinates[1]] == '-':
         grid[x_coordinates[0]][x_coordinates[1]] = 'X'
@@ -76,14 +74,7 @@ Coordinates for the cells:
         break
 
     # ________________
-    o_coordinates = list(map(int, (input
-('''
-Enter coordinates for 0 with a space between them (e.g. "1 1").
-Coordinates for the cells:
-0 0 | 0 1 | 0 2
-1 0 | 1 1 | 1 2
-2 0 | 2 1 | 2 2
-''').split())))
+    o_coordinates = list(map(int, (input('Enter coordinates for 0: ').split())))
     if grid[o_coordinates[0]][o_coordinates[1]] == '-':
         grid[o_coordinates[0]][o_coordinates[1]] = '0'
     else:
